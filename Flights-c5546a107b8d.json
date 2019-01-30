@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "flights-ada2d",
+  "private_key_id": "c5546a107b8d7f08f95225161f875a7585d00f8f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC0oxdeEHJgZdgr\nYndcKwNPLw+uUXVT3jPULpGLf7P0DMXx6AUSXL8dPEHJpsWNVye62pTQP6yoXP4Z\n1dqckL0c8vapNvWO6KINoFO7uHckFi7+NJQo90lMPc4kp9BzsAWxa+OLfhX1nRbP\n7JtBpixgEWRV4NKHvxLSGISb3oVvxKDftuTiIQWUWWqUBStnYI2ngLjM+LTaNFCw\nM435Gkzq8YlBL0u2E9qwSUwDArNgSmMQxuMgi6XopGtSxB7pjCx0kM2DZ13LM4am\nlVqK5022fcYqwSkSOGP+nIKLkNpMXaWnQCbi6giJbRDLnQT7KeO/U0rTcbOdaiRY\nGV9EmjPVAgMBAAECggEAJErZPMuqoz4LFMpjh1fYAh6HNMOGgmt0N9cEZIXrkqbH\nVW9Dp5kNR9Mtt5Vjfx6J67OTbxS//JK0dd3e3pKBAHI7Ryu04fnQ51J1SFPLUiuH\n1Qic1O88IY6QXpJ94eR1fFxcGxBh2pdteCiGWAYKR+Huqgdx3Raxchc9e3CVmCsP\nbRSeV53WmIeNCN4qGGiyDy01WTc2pCnoLlFNqKewopJVcT+yM9EPsn9z15EHjg9T\nj2q9tmG/2vdcUXhgIvU3uqB6FiDDlO3rYvfXYZWv+Z8YZ5HtBCR270WqG2UT3Xqv\n9sp3X2Oc49A+kT2oQFvTW++MaYkgYQWInDgL0RusOQKBgQDnxsuhk1YgT+zlRiwY\nJl2YMTMLMQGSunjrPKq/bSjnHyJsjevCraPDEuVXRF8RwEzkz4LGh/6X0ThEaYtX\nfkIOufhfHH1x4M9gBdSz7mfz3Ykb7HnPdLsLnSCjHjFsMmZxf2j5MFFUjXr1632j\nKPqbrRgACbKKhbL91wnBAH2LyQKBgQDHhA3i1gOl5KnZjbEzNKt6uKZGknE+H4Hr\nJB0I0M9h/XcHcEmlXCaXQGVGvx42P7q8c1pcWqhWaEc9h8nVwY6qZWQVey4mWGUg\nZ11Rnc254Ei3yBLVxsaE7E8OWEx5SNC+TC3oKSBCGmE9IMXvBQAMIXnf5fEl5Dq5\nB7HuOBFVrQKBgBHZXl8wEIbmgNDbSZQGiFirGUo4WO2qzJsZDfE1/9tkq2r+tvRE\nGQNx1hWVX1jnnURVsrWFTZb1dsbV9fQj9gRaUAVLFWIKtQ2pBUtiBcFjAycSXAMc\n8zaewB+vuJCjhP4imLvv+6NuTdTYcNF622nXt6xxEr3WNAWWZNrnJcP5AoGBAIBw\npLfY6rRLRoTFUMQULihs4q4f7EL/6ZVExGQ+eKMulwf045ROhJFuZURsGLj3wfE7\nmXpG6oPl0abs2aSAXKWZbBrgF8+brE51/H9kRWJZ3rZhWK7Crl43+pTThze1Bpzb\nUdpZT2j+roa5qHK9F1C35EudLeckzCD9sTAYbCBpAoGBAKT4FVq6cYNM8vU+Ax0S\ne0PF2IMy/fiiZPrnrfEt9l2/BGAj/KZ12Z1Cu40/Zo16uYFvqQNzkQ+mAAUpJeWJ\ndxzEa22muvbanEiwIm1OddJBOB1OtLWzXcL+66StbXok/qoIvs5X3i6+f7e2Kboi\nV70WDL/4vtR6Vwt33iLHyl60\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-cdyqan@flights-ada2d.iam.gserviceaccount.com",
+  "client_id": "105970595802171745761",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-cdyqan%40flights-ada2d.iam.gserviceaccount.com"
+}

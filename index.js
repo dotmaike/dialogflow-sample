@@ -9,15 +9,16 @@ const port = process.env.PORT || 5000;
  * @param {string} projectId The project to be used
  */
 async function runSample() {
-  const projectId = 'weather-98b28';
-  const query = "What's the weather in New York this morning?";
+  const projectId = 'flights-ada2d';
+  const query =
+    'Find a flight from Dublin to Copenhagen on July 16, returning July 23, for 2 people.';
   const languageCode = 'en-US';
   // A unique identifier for the given session
   const sessionId = uuid.v4();
 
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient({
-    keyFilename: './Weather-1d28c1fe9cb1.json'
+    keyFilename: './Flights-c5546a107b8d.json'
   });
   const sessionPath = sessionClient.sessionPath(projectId, sessionId);
   // The text query request.
@@ -36,7 +37,7 @@ async function runSample() {
   // Send request and log result
   try {
     const responses = await sessionClient.detectIntent(request);
-    return responses;
+    console.log(JSON.stringify(responses));
     /*
     console.log('Detected intent');
     const result = responses[0].queryResult;
