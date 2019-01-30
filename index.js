@@ -4,15 +4,12 @@ const dialogflow = require('dialogflow');
 const uuid = require('uuid');
 const port = process.env.PORT || 5000;
 
-/**
- * Send a query to the dialogflow agent, and return the query result.
- * @param {string} projectId The project to be used
- */
-async function runSample() {
+async function detectTextIntent(req, res, next) {
   const projectId = 'flights-ada2d';
-  const query =
-    'Find a flight from Dublin to Copenhagen on July 16, returning July 23, for 2 people.';
-  const languageCode = 'en-US';
+  const text = req.query['text'];
+  const languageCode = req.query['languageCode'];
+  const short = req.query['short'] || 0;
+
   // A unique identifier for the given session
   const sessionId = uuid.v4();
 
@@ -27,7 +24,7 @@ async function runSample() {
     queryInput: {
       text: {
         // The query to send to the dialogflow agent
-        text: query,
+        text: text,
         // The language used by the client (en-US)
         languageCode: languageCode
       }
@@ -37,25 +34,24 @@ async function runSample() {
   // Send request and log result
   try {
     const responses = await sessionClient.detectIntent(request);
-    console.log(JSON.stringify(responses));
-    /*
-    console.log('Detected intent');
-    const result = responses[0].queryResult;
-    console.log(`  Query: ${result.queryText}`);
-    console.log(`  Response: ${result.fulfillmentText}`);
-    if (result.intent) {
-      console.log(`  Intent: ${result.intent.displayName}`);
+    if (!!short) {
+      const result = responses[0].queryResult;
+      const json = {
+        query: result.queryText,
+        response: result.fulfillmentText,
+        intent: result.intent ? result.intent.displayName : 'No intent matched.'
+      };
+      res.status(200).json(json);
     } else {
-      console.log(`  No intent matched.`);
+      res.status(200).json(responses);
     }
-    */
-  } catch (error) {
-    console.error(error);
+  } catch (e) {
+    next(e);
   }
 }
 
 express()
-  .use(bodyParser.json(), function(req, res, next) {
+  .use(bodyParser.json(), (req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header(
       'Access-Control-Allow-Headers',
@@ -63,5 +59,5 @@ express()
     );
     next();
   })
-  .get('/', (req, res) => res.status(200).json(runSample()))
+  .post('/', async (req, res, next) => detectTextIntent(req, res, next))
   .listen(port, () => console.log(`Listening on ${port}`));
