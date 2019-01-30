@@ -1,0 +1,30 @@
+{
+  "name": "dialogflow-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon --inspect index.js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotmaike/dialogflow-sample.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dotmaike/dialogflow-sample/issues"
+  },
+  "homepage": "https://github.com/dotmaike/dialogflow-sample#readme",
+  "dependencies": {
+    "dialogflow": "^0.8.0",
+    "express": "^4.16.4",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "node-inspect": "^1.11.5",
+    "nodemon": "^1.18.9"
+  }
+}
