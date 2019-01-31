@@ -70,7 +70,7 @@ async function detectTextIntent(req, res, next) {
   // Send request and log result
   try {
     const responses = await sessionClient.detectIntent(request);
-    if (!!short) {
+    if (!!Number(short)) {
       const response = responses[0];
       const result = logQueryResult(sessionClient, response.queryResult);
       res.status(200).json(result);
