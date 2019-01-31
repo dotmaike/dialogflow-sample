@@ -93,5 +93,6 @@ express()
     );
     next();
   })
+  .get('/', (req, res) => res.sendFile(path.join(__dirname + '/index.html')))
   .post('/', async (req, res, next) => detectTextIntent(req, res, next))
   .listen(port, () => console.log(`Listening on ${port}`));
