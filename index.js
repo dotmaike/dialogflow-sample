@@ -6,12 +6,9 @@ const port = process.env.PORT || 5000;
 const structjson = require('./structjson.js');
 
 function logQueryResult(sessionClient, result) {
-  // Imports the Dialogflow library
-  const dialogflow = require('dialogflow');
-
   // Instantiates a context client
   const contextClient = new dialogflow.ContextsClient({
-    keyFilename: './Flights-c5546a107b8d.json'
+    keyFilename: path.join(__dirname+'/Flights-c5546a107b8d.json')
   });
 
   const parameters = structjson.structProtoToJson(result.parameters);
@@ -55,7 +52,7 @@ async function detectTextIntent(req, res, next) {
 
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient({
-    keyFilename: './Flights-c5546a107b8d.json'
+    keyFilename: path.join(__dirname + '/Flights-c5546a107b8d.json')
   });
   const sessionPath = sessionClient.sessionPath(projectId, sessionId);
   // The text query request.
