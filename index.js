@@ -9,7 +9,7 @@ const structjson = require('./structjson.js');
 function logQueryResult(sessionClient, result) {
   // Instantiates a context client
   const contextClient = new dialogflow.ContextsClient({
-    keyFilename: path.join(__dirname+'/Flights-c5546a107b8d.json')
+    keyFilename: path.join(__dirname + '/Flights-c5546a107b8d.json')
   });
 
   const parameters = structjson.structProtoToJson(result.parameters);
