@@ -16,16 +16,20 @@ function logQueryResult(sessionClient, result) {
 
   const parameters = structjson.structProtoToJson(result.parameters);
 
-  const context = {};
+  const contextObj = {
+    id: '',
+    lifespan: '',
+    parameters: []
+  };
+
   if (result.outputContexts && result.outputContexts.length) {
     result.outputContexts.forEach(context => {
-      const contextId = contextClient.matchContextFromContextName(context.name);
-      const contextParameters = structjson.structProtoToJson(
-        context.parameters
-      );
-      context.id = contextId;
-      context.lifespan = context.lifespanCount;
-      context.parameters = contextParameters;
+      contextObj.id = contextClient.matchContextFromContextName(context.name);
+      contextObj.lifespan = context.lifespanCount;
+      contextObj.parameters = [
+        ...contextObj.parameters,
+        structjson.structProtoToJson(context.parameters)
+      ];
     });
   }
 
@@ -34,7 +38,7 @@ function logQueryResult(sessionClient, result) {
     response: result.fulfillmentText,
     intent: result.intent ? result.intent.displayName : 'No intent matched.',
     parameters: parameters,
-    context: context
+    context: contextObj
   };
 
   return json;
