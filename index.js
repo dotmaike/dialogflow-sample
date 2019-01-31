@@ -3,6 +3,42 @@ const bodyParser = require('body-parser');
 const dialogflow = require('dialogflow');
 const uuid = require('uuid');
 const port = process.env.PORT || 5000;
+const structjson = require('./structjson.js');
+
+function logQueryResult(sessionClient, result) {
+  // Imports the Dialogflow library
+  const dialogflow = require('dialogflow');
+
+  // Instantiates a context client
+  const contextClient = new dialogflow.ContextsClient({
+    keyFilename: './Flights-c5546a107b8d.json'
+  });
+
+  const parameters = structjson.structProtoToJson(result.parameters);
+
+  const context = {};
+  if (result.outputContexts && result.outputContexts.length) {
+    result.outputContexts.forEach(context => {
+      const contextId = contextClient.matchContextFromContextName(context.name);
+      const contextParameters = structjson.structProtoToJson(
+        context.parameters
+      );
+      context.id = contextId;
+      context.lifespan = context.lifespanCount;
+      context.parameters = contextParameters;
+    });
+  }
+
+  const json = {
+    query: result.queryText,
+    response: result.fulfillmentText,
+    intent: result.intent ? result.intent.displayName : 'No intent matched.',
+    parameters: parameters,
+    context: context
+  };
+
+  return json;
+}
 
 async function detectTextIntent(req, res, next) {
   const projectId = 'flights-ada2d';
@@ -35,13 +71,9 @@ async function detectTextIntent(req, res, next) {
   try {
     const responses = await sessionClient.detectIntent(request);
     if (!!short) {
-      const result = responses[0].queryResult;
-      const json = {
-        query: result.queryText,
-        response: result.fulfillmentText,
-        intent: result.intent ? result.intent.displayName : 'No intent matched.'
-      };
-      res.status(200).json(json);
+      const response = responses[0];
+      const result = logQueryResult(sessionClient, response.queryResult);
+      res.status(200).json(result);
     } else {
       res.status(200).json(responses);
     }
