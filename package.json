@@ -20,7 +20,7 @@
   "homepage": "https://github.com/dotmaike/dialogflow-sample#readme",
   "dependencies": {
     "dialogflow": "^0.8.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
